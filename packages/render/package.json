@@ -2,5 +2,8 @@
   "name": "@bandaotiehe/render",
   "version": "0.1.0",
   "main": "./dist/index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
 }

@@ -7,5 +7,8 @@
   "dependencies": {
     "rxjs": "^6.5.4",
     "vue-rx": "^6.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
