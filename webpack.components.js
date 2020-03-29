@@ -3,7 +3,7 @@ const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const files = glob.sync('./packages/*')
 const entry = files.reduce((result, current) => {
   result[current.replace('./packages/', '')] = path.resolve(__dirname, current, './src')
@@ -11,7 +11,7 @@ const entry = files.reduce((result, current) => {
 }, {})
 module.exports = {
   entry,
-  mode: 'production',
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   output: {
     libraryTarget: 'commonjs2',
     path: path.resolve(__dirname, './packages'),
@@ -25,10 +25,7 @@ module.exports = {
         loader: [
           'babel-loader',
           {
-            loader: 'ts-loader',
-            options: {
-              compiler: 'ttypescript'
-            }
+            loader: 'ts-loader'
           }
         ],
         exclude: /node_modules/
@@ -137,7 +134,7 @@ module.exports = {
   },
   optimization: {
     minimize: true,
-    minimizer: [new OptimizeCSSAssetsPlugin({}), new UglifyJsPlugin()],
+    minimizer: [new OptimizeCSSAssetsPlugin({})],
     splitChunks: {
       cacheGroups: {
         style: {
@@ -148,5 +145,6 @@ module.exports = {
         }
       }
     }
-  }
+  },
+  devtool: '#source-map'
 }
