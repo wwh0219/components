@@ -1,10 +1,10 @@
 <template>
   <div style="height:100%;width:300px;overflow:hidden;height:600px">
-      <virtual-list use-slot @scroll-end="loadData" tag="li" width="100%">
-        <div v-for="i in data" :key="i.id" :style="{backgroundColor:i.color}">
+      <virtual-list use-slot @scroll-end="loadData" tag="ul" width="100%">
+        <li v-for="i in data" :key="i.id" :style="{backgroundColor:i.color}">
           {{i.id}}
           <div :key="index" v-for="(c,index) in i.childs" :style="{height:`${c.height}`}"></div>
-        </div>
+        </li>
       </virtual-list>
   </div>
 </template>
