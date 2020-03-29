@@ -2,7 +2,7 @@
   "name": "@bandaotiehe/virtual-list",
   "version": "0.0.1",
   "description": "基于Vue的虚拟列表",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "license": "MIT",
   "dependencies": {
     "rxjs": "^6.5.4",

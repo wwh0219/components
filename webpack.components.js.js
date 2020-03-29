@@ -6,7 +6,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const files = glob.sync('./packages/*')
 const entry = files.reduce((result, current) => {
-  result[current.replace('./packages/', '')] = path.resolve(__dirname, current)
+  result[current.replace('./packages/', '')] = path.resolve(__dirname, current, './src')
   return result
 }, {})
 module.exports = {
@@ -14,7 +14,8 @@ module.exports = {
   mode: 'production',
   output: {
     libraryTarget: 'commonjs2',
-    path: path.resolve(__dirname, './dist')
+    path: path.resolve(__dirname, './packages'),
+    filename: '[name]/dist/index.js'
   },
   module: {
     rules: [

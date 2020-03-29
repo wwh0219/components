@@ -1,9 +1,9 @@
 <template>
   <div style="height:100%;width:300px;overflow:hidden;height:600px">
-      <virtual-list use-slot @scroll-end="loadData">
+      <virtual-list use-slot @scroll-end="loadData" tag="li" width="100%">
         <div v-for="i in data" :key="i.id" :style="{backgroundColor:i.color}">
           {{i.id}}
-          <div v-for="c in i.childs" :style="{height:`${c.height}`}"></div>
+          <div :key="index" v-for="(c,index) in i.childs" :style="{height:`${c.height}`}"></div>
         </div>
       </virtual-list>
   </div>
@@ -13,11 +13,11 @@
 import VirtualList from 'packages/virtual-list'
 let id = 0
 const colors = ['red', 'blue', 'gray', '#fff', '#f7f7f7']
-const genBlockColor = item => {
-  return {
-    backgroundColor: item.color
-  }
-}
+// const genBlockColor = item => {
+//   return {
+//     backgroundColor: item.color
+//   }
+// }
 const genData = () => {
   const arr = new Array(100).fill('')
   const data = arr.map((a, index) => {

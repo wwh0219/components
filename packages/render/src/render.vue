@@ -1,8 +1,7 @@
 <script>
 export default {
   functional: true,
-  name: 'render',
-  render (h, { props }) {
+  render: (h, { props }) => {
     return props.render(h)
   }
 }

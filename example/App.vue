@@ -2,6 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/virtual-list">virtual-list</router-link> |
+      <router-link to="/render">render</router-link> |
     </div>
     <div style="flex:1;overflow:auto">
       <router-view/>
