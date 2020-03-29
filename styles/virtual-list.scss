@@ -1,0 +1,9 @@
+.virtual-list {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  &__main{
+    box-sizing: border-box;
+  }
+}
