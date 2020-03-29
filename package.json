@@ -10,8 +10,8 @@
     "test": "cross-env NODE_ENV=test karma start",
     "lint": "eslint \"packages/**/*.{js,vue,ts,tsx}\"  --fix",
     "build": " yarn run webpack-cli --config ./webpack.components.js",
-    "publish:latest":"lerna version --conventional-graduate --yes --conventional-commits",
-    "publish:beta":"lerna version --conventional-prerelease --yes --conventional-commits --preid=beta"
+    "publish:latest":"lerna version --conventional-graduate --yes --conventional-commits && lerna publish from-package  --yes",
+    "publish:beta":"lerna version --conventional-prerelease --yes --conventional-commits --preid beta && lerna publish from-package --preid beta --yes"
   },
   "dependencies": {
     "core-js": "^3.6.4",

@@ -2,5 +2,18 @@
   "packages": [
     "packages/*"
   ],
-  "version": "independent"
+  "command":{
+    "publish": {
+      "ignoreChanges": [
+        "ignored-file",
+        "*.md"
+      ],
+      "message": "chore(release): publish",
+      "access":"public"
+    }
+  },
+  "version": "independent",
+  "publishConfig": {
+    "access": "public"
+  }
 }
