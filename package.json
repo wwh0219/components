@@ -48,7 +48,7 @@
     "husky": "^4.2.3",
     "istanbul-instrumenter-loader": "^3.0.1",
     "jest-puppeteer": "^4.4.0",
-    "jsdom": "12",
+    "jsdom": "16",
     "jsdom-global": "^3.0.2",
     "karma": "^4.4.1",
     "karma-chai": "^0.1.0",
